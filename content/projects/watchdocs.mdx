@@ -1,0 +1,33 @@
+---
+title: Watchdocs
+summary: A GitHub Action and CLI that reads your code changes and opens a PR with the docs updates they need. It never auto-merges.
+category: Tools
+tags: [GitHub Actions, CLI, OpenAPI, LLM]
+status: Planned
+featured: false
+date: 2026-11
+---
+
+## The problem
+
+Docs fall behind the code within days, and most tools only update the API reference. Guides, error pages and quickstarts go stale and need a person to notice.
+
+## What I'm building
+
+Watchdocs watches pushes and pull requests, decides whether a change needs docs and edits the right files. That includes guides, errors and quickstarts, along with failure docs for auth failures, rate limits, pagination, retries and empty responses. It regenerates `llms.txt` and the OpenAPI file in the same PR, then opens a PR for the team to review and merge.
+
+## How it works
+
+1. **Watch.** A GitHub Action reads the `git diff` on push or pull request.
+2. **Filter.** It runs only when the OpenAPI spec or route and controller files changed. Tests, CSS and internal utilities are ignored.
+3. **Map.** It builds a map from each endpoint to the docs files that mention it.
+4. **Edit.** An LLM gets the old doc, a structured change list and the new spec, and returns updated markdown for the related sections only.
+5. **PR.** It creates a branch, commits the edits and opens a PR with a summary.
+
+## Scope for version one
+
+A CLI and a GitHub Action, configured in JSON. No UI and no docs site builder. It batches changes so one push does not create a pile of PRs.
+
+## Status
+
+Planned. The spec is done and the code has not started.

@@ -1,0 +1,32 @@
+---
+title: Flash loan arbitrage bot
+summary: An on-chain arbitrage system. An off-chain scanner finds price gaps between Uniswap V2 and SushiSwap, and a Solidity contract borrows through Balancer V2 flash loans to trade them.
+category: Web3
+tags: [Solidity, ethers.js, Hardhat, Balancer V2, TypeScript]
+status: Testnet
+featured: true
+repo: https://github.com/Aura-pix/flash-loan-arb-bot
+date: 2026-08 # TODO confirm
+---
+
+## The problem
+
+Price gaps between decentralized exchanges close fast, and capturing them by hand is not possible. Flash loans remove the need for starting capital, but the trade has to pay the loan back inside one transaction.
+
+## What I built
+
+A scanner watches Uniswap V2 and SushiSwap for profitable spreads. When it finds one, a Solidity contract borrows through a Balancer V2 flash loan, runs the trade and repays in the same transaction. A Next.js dashboard sits on top.
+
+## Stack
+
+Solidity, Hardhat, ethers.js and TypeScript. Balancer V2, Uniswap V2 and SushiSwap on the protocol side.
+
+## Decisions and fixes
+
+**Tested before it touches real money.** The contract is deployed and verified on Sepolia, and it executed successfully on an Anvil mainnet fork. An automated test suite covers reentrancy, trade direction, slippage and repayment.
+
+**Corrected routers.** I redeployed on Sepolia with the correct router addresses, then checked it with a dry run and a small live transaction.
+
+## Status
+
+Testnet. Mainnet deployment on Arbitrum One is planned.

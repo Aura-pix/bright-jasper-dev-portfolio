@@ -1,0 +1,41 @@
+---
+title: Roomly
+summary: A student housing marketplace for Nigerian universities. Students book rooms, caretakers list verified properties, and rent payments sit in escrow.
+category: Web Apps
+tags: [Next.js, TypeScript, Express, PostgreSQL, Prisma, Monnify]
+status: Beta
+featured: true
+live: https://roomly.com.ng
+repo: https://github.com/Aura-pix/roomly
+date: 2026-03 # TODO confirm
+---
+
+## The problem
+
+Agents in the Nigerian university housing market charge per-visit inspection fees, list the same room at different prices, raise prices at peak demand and give rooms to the highest bidder. Roommate ads on WhatsApp often come with connection fees.
+
+## What I built
+
+Roomly puts listings, booking, payment and roommate ads on one platform. A student picks a unit and it locks for 20 minutes, first come first served. Payment sits in escrow with a 24-hour release window. Caretaker listings are verified, expire after six months and carry verified reviews. Roommate ads are free, and students contact each other directly.
+
+## Stack
+
+Next.js on Vercel. Express and TypeScript on Render. PostgreSQL on Supabase through Prisma. Monnify for payments, Cloudinary for media, Sanity for the blog, ZeptoMail for email.
+
+## Decisions and fixes
+
+**Monnify for payments.** I started on Paystack, moved to Flutterwave and settled on Monnify. Its ₦2,000 fee cap keeps costs down on large rent payments. Each switch meant reworking the payment code.
+
+**A 20-minute unit lock.** It replaces bidding with first come first served, and it stops two students from paying for the same room.
+
+**Escrow release on a 24-hour window.** The release job was filtering by tenancy end date, so I changed it to the 24-hour hold. Caution fees were also missing from caretaker payouts and escrow release, and I corrected that.
+
+**Duplicate bookings.** A paid booking could be booked again after its reservation expired. The expiry check now ignores paid bookings.
+
+**OTP withdrawals.** I rebuilt the withdrawal service with an OTP step.
+
+**Render over Railway.** I moved the backend because of billing.
+
+## Status
+
+Beta.
