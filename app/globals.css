@@ -20,6 +20,10 @@ html {
 
 body {
   margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   background: var(--bg);
   color: var(--text);
   font-family: var(--sans);
@@ -67,6 +71,10 @@ p {
 
 /* Header and footer */
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 
@@ -103,6 +111,7 @@ p {
 }
 
 .site-footer {
+  flex-shrink: 0;
   border-top: 1px solid var(--border);
   margin-top: 72px;
   padding: 28px 0 40px;
@@ -116,6 +125,8 @@ p {
 
 /* Sections */
 main {
+  flex: 1 0 auto;
+  width: 100%;
   padding-top: 48px;
 }
 
