@@ -34,12 +34,12 @@ Designed with an editorial, minimalist aesthetic and powered by IBM Plex typogra
 
 ## Featured Projects Showcased
 
-| Project | Category | Tech Stack | Status | Highlights |
-| :--- | :--- | :--- | :--- | :--- |
-| **[Roomly](https://roomly.com.ng)** | Web Apps | Next.js, Express, TypeScript, PostgreSQL, Prisma, Monnify | **Beta** | Student housing marketplace with 20-min unit locks, automated escrow payments, verified listings, and roommate matchmaking. |
-| **[Flash Loan Arbitrage Bot](https://github.com/Aura-pix/flash-loan-arb-bot)** | Web3 | Solidity, Balancer V2, Hardhat, ethers.js, TypeScript | **Testnet** | On-chain arbitrage contract with off-chain DEX scanner. Executes atomic loans and trades between Uniswap V2 and SushiSwap. |
-| **[Noel's Essentials](https://github.com/Aura-pix/noels-essentials-repo)** | Web Apps | Next.js, JavaScript, WhatsApp API | **Live** | Single-page e-commerce storefront with client-side cart and automated WhatsApp checkout, designed and shipped in 24 hours. |
-| **[Watchdocs](https://dev.brightjasper.com/projects/watchdocs)** | Tools | GitHub Actions, CLI, OpenAPI, LLMs | **Planned** | Autonomous documentation agent that analyzes git diffs, updates stale guides/error docs, and opens non-destructive review PRs. |
+| Project                                                                        | Category | Tech Stack                                                | Status         | Highlights                                                                                                                     |
+| :----------------------------------------------------------------------------- | :------- | :-------------------------------------------------------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------- |
+| **[Roomly](https://roomly.com.ng)**                                            | Web Apps | Next.js, Express, TypeScript, PostgreSQL, Prisma, Monnify | **Beta**       | Student housing marketplace with 20-min unit locks, automated escrow payments, verified listings, and roommate matchmaking.    |
+| **[Flash Loan Arbitrage Bot](https://github.com/Aura-pix/flash-loan-arb-bot)** | Web3     | Solidity, Balancer V2, Hardhat, ethers.js, TypeScript     | **Testnet**    | On-chain arbitrage contract with off-chain DEX scanner. Executes atomic loans and trades between Uniswap V2 and SushiSwap.     |
+| **[Noel's Essentials](https://github.com/Aura-pix/noels-essentials-repo)**     | Web Apps | Next.js, JavaScript, WhatsApp API                         | **Live**       | Single-page e-commerce storefront with client-side cart and automated WhatsApp checkout, designed and shipped in 24 hours.     |
+| **[Watchdocs](https://dev.brightjasper.com/projects/watchdocs)**               | Tools    | GitHub Actions, CLI, OpenAPI, LLMs                        | **Validation** | Autonomous documentation agent that analyzes git diffs, updates stale guides/error docs, and opens non-destructive review PRs. |
 
 ---
 
@@ -101,23 +101,28 @@ Ensure you have [Node.js](https://nodejs.org/) (v18.18+ or v20+) installed on yo
 ### Installation
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/Aura-pix/dev-brightjasper.git
    cd dev-brightjasper
    ```
 
 2. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Start the development server**:
+
    ```bash
    npm run dev
    ```
+
    Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
 4. **Build for production**:
+
    ```bash
    npm run build
    ```
@@ -145,18 +150,23 @@ date: "2026-11" # YYYY-MM
 ---
 
 ## The problem
+
 What friction or inefficiency was addressed.
 
 ## What I built
+
 Architecture overview and core capabilities.
 
 ## Stack
+
 Technologies, libraries, and infrastructure used.
 
 ## Decisions and fixes
+
 Engineering trade-offs, edge cases, and optimizations.
 
 ## Status
+
 Current deployment stage and roadmap.
 ```
 
@@ -167,7 +177,7 @@ The system automatically generates the route `/projects/:slug`, registers the pr
 ## Author & Contact
 
 **Bright Jasper**  
-*Software Engineer | Full-Stack, AI & Web3*
+_Software Engineer | Full-Stack, AI & Web3_
 
 - **Website**: [dev.brightjasper.com](https://dev.brightjasper.com)
 - **Personal & SEO**: [brightjasper.com](https://brightjasper.com)
