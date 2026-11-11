@@ -26,7 +26,12 @@ export default function Home() {
           <Link href="/resume" className="btn btn-ghost">
             Resume
           </Link>
-          <a href={SITE.github} className="btn btn-ghost">
+          <a
+            href={SITE.github}
+            className="btn btn-ghost"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             GitHub
           </a>
         </div>
@@ -57,7 +62,11 @@ export default function Home() {
           project, and I run all of it myself: frontend, backend, payments and support. I
           learn by shipping something and fixing what breaks. I work across web2 and web3,
           with Solidity and DeFi tooling alongside the web stack. I also write about SEO
-          at <a href={SITE.seoSite}>brightjasper.com</a>.
+          at{" "}
+          <a href={SITE.seoSite} target="_blank" rel="noopener noreferrer">
+            brightjasper.com
+          </a>
+          .
         </p>
       </section>
 

@@ -17,8 +17,19 @@ export default function ContactPage() {
       </p>
       <p>
         You can also reach me at <a href={`mailto:${SITE.altEmail}`}>{SITE.altEmail}</a>,
-        on <a href={SITE.x}>X</a>, <a href={SITE.linkedin}>LinkedIn</a> or{" "}
-        <a href={SITE.github}>GitHub</a>.
+        on{" "}
+        <a href={SITE.x} target="_blank" rel="noopener noreferrer">
+          X
+        </a>
+        ,{" "}
+        <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>{" "}
+        or{" "}
+        <a href={SITE.github} target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+        .
       </p>
     </>
   );

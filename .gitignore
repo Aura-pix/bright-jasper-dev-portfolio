@@ -4,3 +4,4 @@ next-env.d.ts
 *.tsbuildinfo
 TODO.md
 DEV_GUIDE.md
+project.md

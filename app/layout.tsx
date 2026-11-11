@@ -64,7 +64,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="site-footer">
           <div className="wrap">
             <p>
-              Elsewhere: <a href={SITE.seoSite}>SEO</a>
+              Elsewhere:{" "}
+              <a href={SITE.seoSite} target="_blank" rel="noopener noreferrer">
+                SEO
+              </a>
             </p>
             <p>© 2026 Bright Jasper</p>
           </div>

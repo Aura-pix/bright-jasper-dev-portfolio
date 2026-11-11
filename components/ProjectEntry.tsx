@@ -35,8 +35,16 @@ export default function ProjectEntry({ project }: { project: Project }) {
       </ul>
       <div className="entry-links">
         <Link href={`/projects/${p.slug}`}>Read the case study</Link>
-        {p.live ? <a href={p.live}>Live</a> : null}
-        {p.repo ? <a href={p.repo}>Source</a> : null}
+        {p.live ? (
+          <a href={p.live} target="_blank" rel="noopener noreferrer">
+            Live
+          </a>
+        ) : null}
+        {p.repo ? (
+          <a href={p.repo} target="_blank" rel="noopener noreferrer">
+            Source
+          </a>
+        ) : null}
       </div>
     </li>
   );

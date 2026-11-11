@@ -13,7 +13,12 @@ export default function ResumePage() {
       <h1>Resume</h1>
       <p className="muted">Download the PDF or read it below. Updated November 2026.</p>
       <div className="btns">
-        <a href="/resume.pdf" className="btn">
+        <a
+          href="/resume.pdf"
+          className="btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Download PDF
         </a>
       </div>
@@ -60,8 +65,14 @@ export default function ResumePage() {
 
       <h2>Links</h2>
       <p>
-        <a href={SITE.github}>GitHub</a> · <a href={SITE.linkedin}>LinkedIn</a> ·{" "}
-        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        <a href={SITE.github} target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>{" "}
+        ·{" "}
+        <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>{" "}
+        · <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
       </p>
     </div>
   );

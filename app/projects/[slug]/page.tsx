@@ -30,6 +30,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const mdxComponents = {
+  a: ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+    const isExternal = href?.startsWith("http://") || href?.startsWith("https://");
+    return (
+      <a
+        href={href}
+        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        {...props}
+      >
+        {children}
+      </a>
+    );
+  },
+};
+
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
   const p = getProject(slug);
@@ -71,12 +86,22 @@ export default async function ProjectPage({ params }: Props) {
         </div>
         <div className="btns">
           {p.live ? (
-            <a href={p.live} className="btn">
+            <a
+              href={p.live}
+              className="btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Live site
             </a>
           ) : null}
           {p.repo ? (
-            <a href={p.repo} className="btn btn-ghost">
+            <a
+              href={p.repo}
+              className="btn btn-ghost"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Source
             </a>
           ) : null}
@@ -94,7 +119,7 @@ export default async function ProjectPage({ params }: Props) {
         />
       ) : null}
       <div className="prose">
-        <MDXRemote source={p.content} />
+        <MDXRemote source={p.content} components={mdxComponents} />
       </div>
     </article>
   );
