@@ -3,7 +3,7 @@ export const SITE = {
   name: "Bright Jasper",
   title: "Bright Jasper | Software Engineer",
   description:
-    "Software engineer with 3 years of building full-stack web apps in Next.js, Node.js, TypeScript and PostgreSQL. Solo developer of Roomly, a student housing marketplace in beta.",
+    "Software engineer with 3 years of building full-stack web apps in Next.js, Node.js, TypeScript and PostgreSQL. Open to junior and mid-level software, AI and Web3 roles, remote.",
   email: "hello@brightjasper.com",
   altEmail: "brghtjasper@gmail.com",
   github: "https://github.com/Aura-pix",

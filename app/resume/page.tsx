@@ -31,6 +31,13 @@ export default function ResumePage() {
       </p>
 
       <h2>Projects</h2>
+      <h3>Watchdocs</h3>
+      <p className="when">2026-11 · Validation</p>
+      <p>
+        A GitHub Action and CLI that opens pull requests with documentation updates.
+        Code complete and in testing; a GitHub Marketplace listing and extensive user
+        testing are next.
+      </p>
       <h3>Roomly</h3>
       <p className="when">2026 · Solo developer · Beta</p>
       <p>
@@ -54,14 +61,41 @@ export default function ResumePage() {
       </p>
 
       <h2>Education</h2>
-      <h3>B.Tech Computer Science, FUT Minna</h3>
+      <h3>
+        B.Tech Computer Science, Federal University of Technology Minna (FUTMinna),
+        Nigeria
+      </h3>
       <p className="when">Third year</p>
 
       <h2>Skills</h2>
       <p>
         Next.js, React, Node.js, Express, TypeScript, JavaScript, Python, PostgreSQL,
-        Prisma, REST APIs, Git, Solidity, ethers.js, Hardhat.
+        Prisma, REST APIs, Git, Solidity, ethers.js, Hardhat, FastAPI.
       </p>
+
+      <h2>Stack</h2>
+      <ul className="stack-list">
+        <li>
+          <strong>Languages</strong>
+          <span>TypeScript, JavaScript, Python, Solidity</span>
+        </li>
+        <li>
+          <strong>Frameworks</strong>
+          <span>Next.js, Node.js/Express, FastAPI</span>
+        </li>
+        <li>
+          <strong>Data</strong>
+          <span>PostgreSQL, Prisma, Supabase</span>
+        </li>
+        <li>
+          <strong>Web3</strong>
+          <span>Hardhat, ethers.js</span>
+        </li>
+        <li>
+          <strong>Tooling</strong>
+          <span>GitHub Actions</span>
+        </li>
+      </ul>
 
       <h2>Links</h2>
       <p>

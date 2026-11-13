@@ -29,7 +29,10 @@ const personSchema = {
   url: SITE.url,
   jobTitle: "Software Engineer",
   email: SITE.email,
-  alumniOf: { "@type": "CollegeOrUniversity", name: "Federal University of Technology, Minna" },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Federal University of Technology Minna (FUTMinna), Nigeria",
+  },
   knowsAbout: ["Next.js", "Node.js", "TypeScript", "PostgreSQL", "SEO", "AI search"],
   sameAs: [
     SITE.seoSite,

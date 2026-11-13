@@ -5,3 +5,5 @@ next-env.d.ts
 TODO.md
 DEV_GUIDE.md
 project.md
+.env.local
+script.ts

@@ -17,11 +17,11 @@ export default function ProjectEntry({ project }: { project: Project }) {
           />
         </Link>
       ) : null}
-      <div className="entry-head">
+      <h3 className="entry-title">
+        <Link href={`/projects/${p.slug}`}>{p.title}</Link>
+      </h3>
+      <div className="entry-meta">
         <span className="entry-date">{p.date}</span>
-        <h3>
-          <Link href={`/projects/${p.slug}`}>{p.title}</Link>
-        </h3>
         {p.featured ? <span className="tag tag-accent">Featured</span> : null}
         <span className={statusClass(p.status)}>{p.status}</span>
       </div>
