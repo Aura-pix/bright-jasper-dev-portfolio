@@ -1,0 +1,49 @@
+---
+title: Jasper Plumbing House — AI booking agent
+summary: A customer-facing Agentplace agent for a plumbing business. It prices jobs through a Vercel API, checks Google Calendar, records bookings in Google Sheets, and sends Gmail confirmations from a Next.js form.
+category: AI
+tags:
+  [
+    Agentplace,
+    Next.js,
+    TypeScript,
+    Vercel,
+    Google Calendar,
+    Google Sheets,
+    Gmail,
+  ]
+status: Live
+featured: true
+repo: https://github.com/Aura-pix/Jasper-AI
+date: 2026-11
+---
+
+## The problem
+
+A plumbing business takes bookings by phone and email. The customer wants a price before committing, and the owner needs the job on the calendar, in a spreadsheet, and confirmed by email. A form can quote a price, but it cannot own the multi-step booking across three Google services.
+
+## What I built
+
+A published Agentplace agent and a Next.js booking form. The form previews the quote from a small Vercel API, then sends the booking request to the agent. The agent gets the authoritative price from the same API, writes the complete pending row to Google Sheets, checks Google Calendar free/busy, updates the row to Confirmed, and sends a Gmail confirmation. If the slot is unavailable, it marks the row Unavailable and returns alternative times; the form lets the customer choose another one. The published agent is also embedded on the site for conversational use.
+
+I built both sides: the Next.js form, the Vercel pricing route, the Agentplace agent prompt and workflow, and the adapter that connects them.
+
+## Stack
+
+Agentplace (Luna), Next.js 16, React, TypeScript, Tailwind CSS, Vercel API routes, Google Calendar, Google Sheets and Gmail through Agentplace, and Vitest.
+
+## Decisions and fixes
+
+**The agent is the application.** The form is a thin client. The agent owns the booking steps and the Google integrations; the Vercel `/api/quote` route is only the pricing capability. That kept the workflow in one place instead of splitting it between the form and the agent.
+
+**One field contract, one row.** The form, agent, and Sheet use the same field names. The agent writes the complete pending row and updates it by Booking ID, rather than the form writing some columns and the agent writing others. It removes a common mismatch class; a missing Timezone field still surfaced in a live test, which I fixed in the agent request.
+
+**The async boundary.** The published agent endpoint returns before the booking finishes. The Next.js API route waits for the final structured result over the agent session and maps it to the form. The first live run updated the Sheet and sent the email but returned no result because the final JSON landed just after the adapter's completion window. I widened the wait, added a final-text fallback, and verified the full flow again.
+
+**Real platform constraints.** The connected Google account needed Editor access to the Sheet, and the workflow had to use the spreadsheet ID because Drive lookup failed. The Agent-side and Builder-side connections were separate; Free/Busy and Sheets both required reauthorization after scope and credential errors. Calendar access is read-only free/busy, so a successful check does not hold the slot. Retries are not idempotent: a new Booking ID is generated per call, so a retry can resend the email or leave a failed row. "Email sent" is a completed Gmail action, not inbox verification.
+
+## Status
+
+Live. The published agent and deployed form completed a real booking at $114 for 2026-11-26 14:00. Next: Postgres for durable bookings, a stable request idempotency key, a write-capable Calendar event with a slot hold, and Stripe/auth.
+
+Agent: https://bobmetsnbddq.run.agentplace.io · Form: https://jasper-ai-five.vercel.app/
